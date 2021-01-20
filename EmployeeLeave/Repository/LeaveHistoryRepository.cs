@@ -7,36 +7,30 @@ using System.Threading.Tasks;
 
 namespace EmployeeLeave.Repository
 {
-    public class LeaveTypeRepository : ILeaveTypeRepository
+    public class LeaveHistoryRepository : ILeaveHistoryRepository
     {
         private readonly ApplicationDbContext _db;
 
-        public LeaveTypeRepository(ApplicationDbContext db)
+        public LeaveHistoryRepository(ApplicationDbContext db)
         {
             _db = db;
         }
-
-        public bool Create(LeaveType entity)
+        public bool Create(LeaveHistory entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(LeaveType entity)
+        public bool Delete(LeaveHistory entity)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<LeaveType> FindAll()
+        public ICollection<LeaveHistory> FindAll()
         {
             throw new NotImplementedException();
         }
 
-        public LeaveType FindById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICollection<LeaveType> GetEmployeeByLeaveType(int id)
+        public LeaveHistory FindById(int id)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +40,7 @@ namespace EmployeeLeave.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(LeaveType entity)
+        public bool Update(LeaveHistory entity)
         {
             throw new NotImplementedException();
         }
