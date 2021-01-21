@@ -14,6 +14,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using EmployeeLeave.Contracts;
 using EmployeeLeave.Repository;
+using AutoMapper;
+using EmployeeLeave.Mappings;
 
 namespace EmployeeLeave
 {
@@ -37,6 +39,8 @@ namespace EmployeeLeave
             services.AddScoped<ILeaveTypeRepository, LeaveTypeRepository>();
             services.AddScoped<ILeaveAllocationRepository, LeaveAllocationRepository>();
             services.AddScoped<ILeaveHistoryRepository, LeaveHistoryRepository>();
+
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
