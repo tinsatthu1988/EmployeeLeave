@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EmployeeLeave.Contracts;
+using EmployeeLeave.Data;
+using EmployeeLeave.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,7 +25,9 @@ namespace EmployeeLeave.Controllers
         // GET: LeaveTypesController
         public ActionResult Index()
         {
-            return View();
+            var leavetypes = _repo.FindAll().ToList();
+            var model = _mapper.Map<List<LeaveType>, List<DetailsLeaveTypeVM>>(leavetypes);
+            return View(model);
         }
 
         // GET: LeaveTypesController/Details/5
