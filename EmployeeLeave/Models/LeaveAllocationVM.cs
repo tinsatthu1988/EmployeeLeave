@@ -25,4 +25,9 @@ namespace EmployeeLeave.Models
         public IEnumerable<SelectListItem> Employees { get; set; }
         public IEnumerable<SelectListItem> LeaveTypes { get; set; }
     }
+    public class CreateLeaveAllocationVM
+    {
+        public int NumberUpdated { get; set; }
+        public List<LeaveTypeVM> LeaveTypes { get; set; }
+    }
 }
