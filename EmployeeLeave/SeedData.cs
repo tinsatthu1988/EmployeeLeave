@@ -21,8 +21,8 @@ namespace EmployeeLeave
             {
                 var user = new IdentityUser
                 {
-                    UserName = "admin",
-                    Email = "admin@localhost"
+                    UserName = "admin@localhost.com",
+                    Email = "admin@localhost.com"
                 };
                 var result = userManager.CreateAsync(user, "123Admin!@#").Result;
                 if (result.Succeeded)

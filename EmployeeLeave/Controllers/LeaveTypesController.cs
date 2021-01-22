@@ -6,12 +6,13 @@ using AutoMapper;
 using EmployeeLeave.Contracts;
 using EmployeeLeave.Data;
 using EmployeeLeave.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeLeave.Controllers
 {
-
+    [Authorize(Roles = "Administrator")]
     public class LeaveTypesController : Controller
     {
         private readonly ILeaveTypeRepository _repo;
@@ -22,6 +23,7 @@ namespace EmployeeLeave.Controllers
             _repo = repo;
             _mapper = mapper;
         }
+        
         // GET: LeaveTypesController
         public ActionResult Index()
         {
