@@ -1,4 +1,5 @@
 ﻿using EmployeeLeave.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -37,6 +38,29 @@ namespace EmployeeLeave.Models
         public int PendingRequests { get; set; }
         [Display(Name = "Rejected Requests")]
         public int RejectedRequests { get; set; }
+        public List<LeaveRequestVM> LeaveRequests { get; set; }
+    }
+
+    public class CreateLeaveRequestVM
+    {
+
+        [Display(Name = "Start Date")]
+        [Required]
+        public string StartDate { get; set; }
+        [Display(Name = "End Date")]
+        [Required]
+        public string EndDate { get; set; }
+        public IEnumerable<SelectListItem> LeaveTypes { get; set; }
+        [Display(Name = "Leave Type")]
+        public int LeaveTypeId { get; set; }
+        //[Display(Name = "Comments")]
+        //[MaxLength(300)]
+        //public string RequestComments { get; set; }
+    }
+
+    public class EmployeeLeaveRequestViewVM
+    {
+        public List<LeaveAllocationVM> LeaveAllocations { get; set; }
         public List<LeaveRequestVM> LeaveRequests { get; set; }
     }
 }

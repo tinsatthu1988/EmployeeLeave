@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EmployeeLeave.Controllers
 {
@@ -63,7 +64,17 @@ namespace EmployeeLeave.Controllers
         // GET: LeaveRequestController/Create
         public ActionResult Create()
         {
-            return View();
+            var leaveTypes = _leaveTypeRepo.FindAll();
+            var leaveTypeItems = leaveTypes.Select(q => new SelectListItem
+            {
+                Text = q.Name,
+                Value = q.Id.ToString()
+            });
+            var model = new CreateLeaveRequestVM
+            {
+                LeaveTypes = leaveTypeItems
+            };
+            return View(model);
         }
 
         // POST: LeaveRequestController/Create
