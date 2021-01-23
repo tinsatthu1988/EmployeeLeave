@@ -48,7 +48,11 @@ namespace EmployeeLeave.Repository
 
         public LeaveAllocation FindById(int id)
         {
-            return _db.LeaveAllocations.Find(id);
+            var LeaveAllocations = _db.LeaveAllocations
+                .Include(q => q.LeaveType)
+                .Include(q => q.Employee)
+                .FirstOrDefault(q => q.Id == id);
+            return LeaveAllocations;
         }
 
         public ICollection<LeaveAllocation> GetLeaveAllocationsByEmployee(string id)
