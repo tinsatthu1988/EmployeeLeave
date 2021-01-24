@@ -65,9 +65,9 @@ namespace EmployeeLeave.Models
         public IEnumerable<SelectListItem> LeaveTypes { get; set; }
         [Display(Name = "Leave Type")]
         public int LeaveTypeId { get; set; }
-        //[Display(Name = "Comments")]
-        //[MaxLength(300)]
-        //public string RequestComments { get; set; }
+        [Display(Name = "Comments")]
+        [MaxLength(300)]
+        public string RequestComments { get; set; }
     }
 
     public class EmployeeLeaveRequestViewVM
